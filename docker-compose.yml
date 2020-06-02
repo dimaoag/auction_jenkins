@@ -1,9 +1,16 @@
 version: "3.7"
 services:
+    nginx:
+        image: nginx:alpine
+        ports:
+            - "8010:8000"
+        volumes:
+            - ./docker/development/nginx/conf.d:/etc/nginx/conf.d
+        depends_on:
+            - jenkins
+
     jenkins:
         image: jenkinsci/blueocean
-        ports:
-            - "8010:8080"
         environment:
             DOCKER_HOST: tcp://docker:2376
             DOCKER_CERT_PATH: /certs/client
