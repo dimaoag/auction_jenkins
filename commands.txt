@@ -1,3 +1,6 @@
 0) make upgrade
 1) make server
 2) make authorize
+3) cd ..
+4) HOST=ip PORT=port make deploy
+5) make show-initial-password //cd provisioning
