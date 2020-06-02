@@ -1,0 +1,3 @@
+0) make upgrade
+1) make server
+2) make authorize
