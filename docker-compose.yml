@@ -1,0 +1,17 @@
+version: "3.7"
+services:
+    jenkins:
+        image: jenkinsci/blueocean
+        ports:
+            - "8010:8080"
+        volumes:
+            - jenkins-data:/var/jenkins_home
+        depends_on:
+            - docker
+
+    docker:
+        image: docker:dind
+        privileged: true
+
+volumes:
+    jenkins-data:
