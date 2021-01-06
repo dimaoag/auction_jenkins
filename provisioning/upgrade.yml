@@ -3,11 +3,11 @@
     hosts: all
     remote_user: root
     tasks:
-        -   name: Install
-            apt:
-                name:
-                    - debian-archive-keyring
-                    - debian-keyring
+#        -   name: Install
+#            apt:
+#                name:
+#                    - debian-archive-keyring
+#                    - debian-keyring
 
         -   name: Update APT package cache
             apt:
