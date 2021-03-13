@@ -5,3 +5,4 @@
         job: '/bin/sh -c "cd /home/deploy/jenkins && docker-compose exec docker docker system prune -af --filter until=120h"'
         minute: '0'
         hour: '2'
+        user: 'deploy'

@@ -47,6 +47,7 @@
         job: 'docker system prune -af --filter until=120h'
         minute: '0'
         hour: '1'
+        user: 'deploy'
 
 -   name: Remove useless packages
     apt:
