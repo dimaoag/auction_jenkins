@@ -1,3 +1,4 @@
+clean-storage: clean-server-storage clean-server-docker-storage
 server:
 	ansible-playbook server.yml -i hosts.yml
 
@@ -18,3 +19,12 @@ authorize-agents:
 
 show-initial-password:
 	ansible -i hosts.yml manager -m shell -a 'cd /home/deploy/jenkins && docker-compose exec jenkins cat /var/jenkins_home/secrets/initialAdminPassword'
+
+add-permissions-for-jenkins:
+	ansible -i hosts.yml manager -m shell -a "cd /home/deploy/jenkins && docker-compose exec --user root jenkins chmod -R a+rwx /var/jenkins_home"
+
+clean-server-storage:
+	ansible -i hosts.yml manager -m shell -a "docker system prune -af"
+
+clean-server-docker-storage:
+	ansible -i hosts.yml manager -m shell -a "cd /home/deploy/jenkins && docker-compose exec docker docker system prune -af"
